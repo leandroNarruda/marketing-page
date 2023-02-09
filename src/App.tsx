@@ -17,21 +17,29 @@ import {
 
 function App() {
 	const [show, setShow] = useState(localStorage.getItem('ended') === '1');
-	useEffect(() => {
+
+	const showContent = () => {
 		setTimeout(() => {
-			const element = document.querySelector('video');
-			element?.addEventListener('ended', (event) => {
-				setShow(true);
-				localStorage.setItem('ended', '1');
-				setTimeout(() => {
-					var s = document.createElement('script');
-					(s.src = 'https://scripts.converteai.net/4ece02e9-03a2-4586-824c-644021abdf60/players/63e54fd4b0dd9c000bdc6429/player.js'),
-						(s.async = !0),
-						document.head.appendChild(s);
-				}, 500);
-			});
-		}, 1000);
-	}, []);
+			setShow(true);
+			var s = document.createElement('script');
+			(s.src = 'https://scripts.converteai.net/4ece02e9-03a2-4586-824c-644021abdf60/players/63e54fd4b0dd9c000bdc6429/player.js'),
+				(s.async = !0),
+				document.head.appendChild(s);
+		}, 500);
+	};
+
+	const [interval, setInterval] = useState<number>(0);
+	useEffect(() => {
+		const newTime = localStorage.getItem('63e509ba1933a2000ed6e0fe') || '0';
+		setTimeout(() => {
+			console.log(newTime);
+			if (parseInt(newTime) > 921) {
+				showContent();
+			} else {
+				setInterval(interval + 5);
+			}
+		}, 5000);
+	}, [interval]);
 
 	return (
 		<Flex w={'100%'} flexDir={'column'} justifyContent={'center'} alignItems={'center'}>
