@@ -46,7 +46,7 @@ function App() {
 	return (
 		<Flex w={'100%'} flexDir={'column'} justifyContent={'center'} alignItems={'center'}>
 			<Flex backgroundColor={'yellow'} color={'black'} justifyContent={'center'} w={'100%'}>
-				<Text fontSize={'2rem'} fontWeight={'bold'} m={'1.5rem 0'}>
+				<Text fontSize={'2rem'} fontWeight={'bold'} m={'1.5rem 0'} color={'white'}>
 					Você foi selecionado para assistir esse vídeo 👇🏻
 				</Text>
 			</Flex>
@@ -66,7 +66,7 @@ function App() {
 
 			<Flex justifyContent={'center'} alignItems="center" gap={'10px'}>
 				<Img src="/ouvindo.png" maxW={'2.5rem'} />
-				<Text fontSize={'1.3rem'} fontWeight={'bold'}>
+				<Text fontSize={'1.3rem'} fontWeight={'bold'} color={'white'}>
 					Verifique se seu áudio está ligado
 				</Text>
 			</Flex>
