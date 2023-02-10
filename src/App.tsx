@@ -14,6 +14,7 @@ import {
 	Link,
 	Text,
 } from '@chakra-ui/react';
+import { registerEvent } from './utils/facebookPixelEvent';
 
 function App() {
 	const [show, setShow] = useState(localStorage.getItem('ended') === '1');
@@ -32,19 +33,20 @@ function App() {
 	useEffect(() => {
 		const newTime = localStorage.getItem('63e509ba1933a2000ed6e0fe') || '0';
 		setTimeout(() => {
-			console.log(newTime);
-			if (parseInt(newTime) > 921) {
+			if (parseInt(newTime) > 804) {
 				showContent();
 			} else {
-				setInterval(interval + 5);
+				setInterval(interval + 3);
 			}
-		}, 5000);
+		}, 3000);
 	}, [interval]);
+
+	useEffect(() => registerEvent(), []);
 
 	return (
 		<Flex w={'100%'} flexDir={'column'} justifyContent={'center'} alignItems={'center'}>
 			<Flex backgroundColor={'yellow'} color={'black'} justifyContent={'center'} w={'100%'}>
-				<Text fontSize={'2rem'} fontWeight={'bold'} m={'20px 0'}>
+				<Text fontSize={'2rem'} fontWeight={'bold'} m={'1.5rem 0'}>
 					Você foi selecionado para assistir esse vídeo 👇🏻
 				</Text>
 			</Flex>
